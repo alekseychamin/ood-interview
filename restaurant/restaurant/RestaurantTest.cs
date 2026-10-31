@@ -59,7 +59,7 @@ public class RestaurantTest {
         Console.WriteLine("\n--- Verifying Table Booking ---");
         // check if the table is actually booked
         Assert.False(reservation.AssignedTable.IsAvailableAt(selectedTime));
-        Assert.True(testRestaurant.ReservationManager.Reservations.Contains(reservation));
+        Assert.Contains(reservation, testRestaurant.ReservationManager.Reservations);
         Console.WriteLine("✓ Table booking verification passed:");
         Console.WriteLine("  - Table is no longer available at reserved time");
         Console.WriteLine("  - Reservation is properly stored in reservation manager");

@@ -37,6 +37,24 @@ counterpart was. Each project contains the code and its xUnit tests.
 `*_deep_dive` folders hold the "deep dive" snippets from the book; like in the
 Java version, some of them are fragments and they are excluded from compilation.
 
+## Coding Interview Patterns (C#)
+
+`coding_interview_patterns/` contains the C# / .NET 10 versions of the listings from
+*Coding Interview Patterns* (ByteByteGo; Russian edition «Паттерны Coding Interview»),
+one folder per chapter (`01_TwoPointers` … `19_MathAndGeometry`). Every complete
+solution from the book compiles here; `Tests/SolutionsTests.cs` checks them on the
+book's examples.
+
+```bash
+dotnet test coding_interview_patterns/CodingInterviewPatterns.csproj
+```
+
+Python → C# conventions: `snake_case` functions → `PascalCase` static methods (each problem
+in its own `*Solution` static class), `snake_case` variables → `camelCase`,
+`List[int]` → `int[]` / `List<int>`, `dict`/`set` → `Dictionary`/`HashSet`,
+`deque` → `Queue`, `heapq` → `PriorityQueue`, `float('inf')` → `int.MaxValue` (or a safe
+`Inf` sentinel).
+
 ## Java → C# conventions used
 
 | Java | C# |

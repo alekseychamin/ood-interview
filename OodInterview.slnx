@@ -12,4 +12,7 @@
     <Project Path="tic_tac_toe/TicTacToe.csproj" />
     <Project Path="vending_machine/VendingMachine.csproj" />
   </Folder>
+  <Folder Name="/coding-interview-patterns/">
+    <Project Path="coding_interview_patterns/CodingInterviewPatterns.csproj" />
+  </Folder>
 </Solution>
