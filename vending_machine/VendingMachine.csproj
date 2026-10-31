@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>VendingMachine</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Deep-dive files are partial snippets from the book (as in the Java version) and are not compiled. -->
+    <Compile Remove="vending_machine_deep_dive/**" />
+    <None Include="vending_machine_deep_dive/**" />
+  </ItemGroup>
+
+</Project>

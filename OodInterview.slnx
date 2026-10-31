@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/ood/">
+    <Project Path="atm/Atm.csproj" />
+    <Project Path="blackjack/BlackJack.csproj" />
+    <Project Path="elevator_system/Elevator.csproj" />
+    <Project Path="file_search/FileSearch.csproj" />
+    <Project Path="grocery_store/GroceryStore.csproj" />
+    <Project Path="movie_ticket/MovieTicket.csproj" />
+    <Project Path="parking_lot/ParkingLot.csproj" />
+    <Project Path="restaurant/Restaurant.csproj" />
+    <Project Path="shipping_locker/ShippingLocker.csproj" />
+    <Project Path="tic_tac_toe/TicTacToe.csproj" />
+    <Project Path="vending_machine/VendingMachine.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,23 @@
+name: .NET 10 build & test
+
+on:
+  push:
+    branches: [ dotnet10 ]
+  pull_request:
+    branches: [ dotnet10 ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - name: Restore
+        run: dotnet restore OodInterview.slnx
+      - name: Build
+        run: dotnet build OodInterview.slnx --no-restore -c Release
+      - name: Test
+        run: dotnet test OodInterview.slnx --no-build -c Release --logger "console;verbosity=normal"

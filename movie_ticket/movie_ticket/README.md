@@ -1,12 +1,12 @@
 # Movie Ticket Booking System
 
-This is a Java-based movie ticket booking system that allows users to manage cinemas, movies, screenings, and ticket bookings.
+This is a C#-based movie ticket booking system that allows users to manage cinemas, movies, screenings, and ticket bookings.
 
 ## Project Structure
 ```
 movie_ticket/
-├── MovieBookingSystem.java
-├── MovieBookingSystemTest.java
+├── MovieBookingSystem.cs
+├── MovieBookingSystemTest.cs
 ├── location/
 ├── rate/
 ├── showing/
@@ -17,12 +17,12 @@ movie_ticket/
 
 ```bash
 # From repository root
-./gradlew :movieticket:test
+dotnet test movie_ticket/MovieTicket.csproj
 ```
 
 ### What the Tests Cover
 
-The test suite (`MovieBookingSystemTest.java`) verifies the core functionality of the booking system:
+The test suite (`MovieBookingSystemTest.cs`) verifies the core functionality of the booking system:
 - Creating a cinema with rooms and seating layouts
 - Adding movies and screenings
 - Managing seat availability
@@ -47,11 +47,3 @@ Test run finished after XX ms
 [         1 tests successful      ]
 [         0 tests failed          ]
 ```
-
-### Troubleshooting
-
-If you encounter any issues:
-1. Make sure Java is installed and properly configured
-2. Check that you have write permissions in the `/tmp` directory
-3. Verify your internet connection
-4. If you get compilation errors, make sure you're in the root directory of the project 

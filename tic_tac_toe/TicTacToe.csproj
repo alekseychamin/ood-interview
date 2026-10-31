@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>TicTacToe</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Deep-dive files are partial snippets from the book (as in the Java version) and are not compiled. -->
+    <Compile Remove="tic_tac_toe_deep_dive/**" />
+    <None Include="tic_tac_toe_deep_dive/**" />
+  </ItemGroup>
+
+</Project>

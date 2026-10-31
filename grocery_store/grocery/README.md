@@ -1,11 +1,12 @@
 # Grocery Store System
 
-A Java-based grocery store system that manages inventory, processes orders, and applies discounts.
+A C#-based grocery store system that manages inventory, processes orders, and applies discounts.
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 8 or higher
-- Internet connection (for downloading dependencies)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Project Structure
 
@@ -14,30 +15,30 @@ grocery/
 ├── discount/
 │   ├── criteria/
 │   └── strategy/
-├── GroceryStoreSystem.java
-├── GroceryStoreSystemTest.java
-└── ... (other Java files)
+├── GroceryStoreSystem.cs
+├── GroceryStoreSystemTest.cs
+└── ... (other C# files)
 ```
 
 ## Running the Tests
 
 ```bash
 # From repository root
-./gradlew :grocerystore:test
+dotnet test grocery_store/GroceryStore.csproj
 ```
 
 ## Test Results
 
 The test suite includes two main tests:
 
-1. `testEndToEnd()`: Tests the complete flow of the grocery store system
+1. `TestEndToEnd()`: Tests the complete flow of the grocery store system
    - Adding items to catalog
    - Updating inventory
    - Applying discounts
    - Processing orders
    - Generating receipts
 
-2. `testCatalogueManagement()`: Tests catalog management functionality
+2. `TestCatalogueManagement()`: Tests catalog management functionality
    - Adding items
    - Updating item details
    - Removing items
@@ -65,4 +66,4 @@ The main classes in the system are:
 
 - The system uses BigDecimal for all monetary calculations to ensure precision
 - Discounts can be applied based on various criteria (e.g., category-based)
-- The system supports multiple discount strategies (e.g., percentage-based) 
+- The system supports multiple discount strategies (e.g., percentage-based)

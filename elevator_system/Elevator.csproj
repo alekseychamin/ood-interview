@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Elevator</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Deep-dive files are partial snippets from the book (as in the Java version) and are not compiled. -->
+    <Compile Remove="elevator_deep_dive/**" />
+    <None Include="elevator_deep_dive/**" />
+  </ItemGroup>
+
+</Project>

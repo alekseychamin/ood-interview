@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Restaurant</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Deep-dive files are partial snippets from the book (as in the Java version) and are not compiled. -->
+    <Compile Remove="restaurant_deep_dive/**" />
+    <None Include="restaurant_deep_dive/**" />
+  </ItemGroup>
+
+</Project>

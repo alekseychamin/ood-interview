@@ -1,11 +1,12 @@
 # Amazon Locker System
 
-This project is an object-oriented design and implementation of an Amazon Locker system in Java. It includes core classes for lockers, packages, accounts, and a JUnit test suite.
+This project is an object-oriented design and implementation of an Amazon Locker system in C# (.NET 10). It includes core classes for lockers, packages, accounts, and a xUnit test suite.
 
 ## Prerequisites
 
-- Java JDK 8 or higher
-- Internet connection (for downloading JUnit dependencies)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Project Structure
 
@@ -14,21 +15,21 @@ shippinglocker/
   account/         # Account-related classes
   locker/          # Locker-related classes
   pkg/             # Package-related classes
-  ShippingLockerTest.java   # JUnit test class
-  Site.java
-  NotificationInterface.java
-  EmailNotification.java
+  ShippingLockerTest.cs   # xUnit test class
+  Site.cs
+  INotification.cs
+  EmailNotification.cs
 ```
 
 ## Running the Tests
 
 ```bash
 # From repository root
-./gradlew :shippinglocker:test
+dotnet test shipping_locker/ShippingLocker.csproj
 ```
 
 ## Notes
 
-- No build system (like Maven or Gradle) is required.
-- If you add new test files, simply recompile and rerun the above commands.
-- The test output will be shown in the terminal. 
+- Built and tested with the .NET SDK (`dotnet test`).
+- New test files are picked up automatically by `dotnet test`.
+- The test output will be shown in the terminal.

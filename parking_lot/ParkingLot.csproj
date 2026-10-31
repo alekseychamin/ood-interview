@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>ParkingLot</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Deep-dive files are partial snippets from the book (as in the Java version) and are not compiled. -->
+    <Compile Remove="parking_lot_deep_dive/**" />
+    <None Include="parking_lot_deep_dive/**" />
+  </ItemGroup>
+
+</Project>

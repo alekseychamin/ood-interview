@@ -1,14 +1,14 @@
 # Restaurant Management System
 
-This project is a simple Restaurant Management System implemented in Java. It supports table reservations, walk-ins, menu management, and order processing.
+This project is a simple Restaurant Management System implemented in C# (.NET 10). It supports table reservations, walk-ins, menu management, and order processing.
 
 ## Prerequisites
-- Java JDK 11 or higher
-- Bash shell (for running the provided script)
-- Internet connection (for the first run, to download JUnit dependencies)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Project Structure
-- `restaurant/` - Main source code (Java packages for menu, reservation, table, etc.)
+- `restaurant/` - Main source code (namespaces for menu, reservation, table, etc.)
 - `run_tests.sh` - Script to compile and run the tests
 - `README.md` - This file
 
@@ -16,36 +16,10 @@ This project is a simple Restaurant Management System implemented in Java. It su
 
 ```bash
 # From repository root
-./gradlew :restaurant:test
+dotnet test restaurant/Restaurant.csproj
 ```
-
-#### Example Output
-```
-Compiling source files...
-Running RestaurantTest...
-
-Thanks for using JUnit! Support its development at https://junit.org/sponsoring
-
-╷
-├─ JUnit Jupiter ✔
-│  └─ RestaurantTest ✔
-│     ├─ testRestaurantReservation() ✔
-│     └─ testRestaurantWalkIn() ✔
-...
-[         2 tests found           ]
-[         2 tests successful      ]
-[         0 tests failed          ]
-```
-
-## Troubleshooting
-- If you see errors about missing JUnit classes in your editor, but the script works, this is normal. The script downloads and uses the correct JUnit jars at runtime.
-- If you get a permissions error, make the script executable:
-  ```sh
-  chmod +x run_tests.sh
-  ```
-- If you want to re-download dependencies, delete the `lib/` directory and re-run the script.
 
 ## Notes
 - The main business logic is in the `restaurant/` directory, organized by feature (menu, reservation, table, etc.).
-- The project does **not** use Maven or Gradle; all dependencies are managed by the script.
-- You can add your own tests to `restaurant/RestaurantTest.java` or create new test files and run them similarly.
+- The project is built with the .NET SDK (`dotnet test`).
+- You can add your own tests to `restaurant/RestaurantTest.cs` or create new test files and run them similarly.

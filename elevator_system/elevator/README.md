@@ -7,29 +7,30 @@ This is an implementation of an elevator control system that manages elevator op
 ```
 elevator/
 ├── components/
-│   ├── Direction.java         # Enum for elevator direction (UP, DOWN, IDLE)
-│   ├── ElevatorCar.java      # Core elevator functionality
-│   ├── ElevatorStatus.java   # Status representation of elevator
-│   └── HallwayButtonPanel.java # Handles elevator call buttons
+│   ├── Direction.cs         # Enum for elevator direction (Up, Down, Idle)
+│   ├── ElevatorCar.cs      # Core elevator functionality
+│   ├── ElevatorStatus.cs   # Status representation of elevator
+│   └── HallwayButtonPanel.cs # Handles elevator call buttons
 ├── dispatch/
-│   ├── DispatchingStrategy.java        # Interface for elevator selection strategies
-│   ├── ElevatorDispatch.java           # Handles elevator dispatching
-│   ├── FirstComeFirstServeStrategy.java # Simple dispatching strategy
-│   └── ShortestSeekTimeFirstStrategy.java # Optimized dispatching strategy
-├── ElevatorSystem.java       # Main elevator system controller
-└── ElevatorSystemTest.java   # Test cases for the elevator system
+│   ├── IDispatchingStrategy.cs        # Interface for elevator selection strategies
+│   ├── ElevatorDispatch.cs           # Handles elevator dispatching
+│   ├── FirstComeFirstServeStrategy.cs # Simple dispatching strategy
+│   └── ShortestSeekTimeFirstStrategy.cs # Optimized dispatching strategy
+├── ElevatorSystem.cs       # Main elevator system controller
+└── ElevatorSystemTest.cs   # Test cases for the elevator system
 ```
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 8 or higher
-- JUnit 5.8.2 (included in lib directory)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Running the Tests
 
 ```bash
 # From repository root
-./gradlew :elevator:test
+dotnet test elevator_system/Elevator.csproj
 ```
 
 ## System Features
@@ -46,31 +47,31 @@ elevator/
 
 3. **Status Monitoring**
    - Current floor tracking
-   - Direction status (UP, DOWN, IDLE)
+   - Direction status (Up, Down, Idle)
    - Destination queue management
 
 ## Example Usage
 
-```java
+```csharp
 // Create an elevator car starting at floor 1
 ElevatorCar car = new ElevatorCar(1);
 
 // Create an elevator system with a dispatching strategy
 ElevatorSystem elevatorSystem = new ElevatorSystem(
-    List.of(car), 
+    [car],
     new FirstComeFirstServeStrategy()
 );
 
 // Request an elevator from floor 3 going up
-elevatorSystem.requestElevator(3, Direction.UP);
+elevatorSystem.RequestElevator(3, Direction.Up);
 
 // Select a destination floor from inside the elevator
-elevatorSystem.selectFloor(car, 8);
+elevatorSystem.SelectFloor(car, 8);
 ```
 
 ## Testing
 
-The system includes comprehensive tests in `ElevatorSystemTest.java` that verify:
+The system includes comprehensive tests in `ElevatorSystemTest.cs` that verify:
 - Elevator movement
 - Direction changes
 - Floor request handling

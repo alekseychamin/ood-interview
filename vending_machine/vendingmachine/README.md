@@ -10,16 +10,8 @@ This project implements a simple vending machine system with the following featu
 
 ```bash
 # From repository root
-./gradlew :vendingmachine:test
+dotnet test vending_machine/VendingMachine.csproj
 ```
-
-### Expected Output
-
-The test will run and you should see:
-- Test execution results
-- Transaction processing output
-- Inventory state
-- Success/failure status of the tests
 
 ## Project Structure
 

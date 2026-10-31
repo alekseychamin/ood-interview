@@ -6,51 +6,52 @@ This project implements a flexible file search system similar to Unix's find com
 
 ```
 filesearch/
-├── FileSearch.java           # Main search implementation
-├── FileSearchCriteria.java   # Search criteria definition
-├── FileSearchTest.java       # Unit tests
+├── FileSearch.cs           # Main search implementation
+├── FileSearchCriteria.cs   # Search criteria definition
+├── FileSearchTest.cs       # Unit tests
 ├── clause/                   # Search predicates
-│   ├── AndPredicate.java
-│   ├── OrPredicate.java
-│   └── SimplePredicate.java
+│   ├── AndPredicate.cs
+│   ├── OrPredicate.cs
+│   └── SimplePredicate.cs
 ├── operator/                 # Comparison operators
 └── filesystem/              # File system related classes
 ```
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 8 or higher
-- JUnit 5 (will be downloaded automatically during setup)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Running the Tests
 
 ```bash
 # From repository root
-./gradlew :filesearch:test
+dotnet test file_search/FileSearch.csproj
 ```
 
 ## Usage Example
 
 The file search system supports various search criteria that can be combined using AND/OR predicates. Here's an example of how to use it:
 
-```java
+```csharp
 // Create a file hierarchy
 File root = new File(true, 0, "adam", "root");
 File a = new File(false, 2000, "adam", "a");
-root.addEntry(a);
+root.AddEntry(a);
 
 // Create search criteria
 FileSearchCriteria criteria = new FileSearchCriteria(
-    new SimplePredicate<>(
-        FileAttribute.IS_DIRECTORY,
-        new EqualsOperator<>(),
+    new SimplePredicate<bool>(
+        FileAttribute.IsDirectory,
+        new EqualsOperator<bool>(),
         false
     )
 );
 
 // Perform the search
 FileSearch fileSearch = new FileSearch();
-List<File> results = fileSearch.search(root, criteria);
+List<File> results = fileSearch.Search(root, criteria);
 ```
 
 ## Search Criteria
@@ -68,4 +69,4 @@ Feel free to submit issues and enhancement requests!
 
 ## License
 
-This project is open source and available under the MIT License. 
+This project is open source and available under the MIT License.

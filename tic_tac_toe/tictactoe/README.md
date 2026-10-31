@@ -1,31 +1,32 @@
 # Tic Tac Toe Game
 
-A simple implementation of the classic Tic Tac Toe game in Java.
+A simple implementation of the classic Tic Tac Toe game in C# (.NET 10).
 
 ## Project Structure
 
 ```
 tictactoe/
-├── Board.java
-├── Game.java
-├── GameCondition.java
-├── Move.java
-├── MoveHistory.java
-├── Player.java
-├── ScoreTracker.java
-└── TicTacToeTest.java
+├── Board.cs
+├── Game.cs
+├── GameCondition.cs
+├── Move.cs
+├── MoveHistory.cs
+├── Player.cs
+├── ScoreTracker.cs
+└── TicTacToeTest.cs
 ```
 
 ## Prerequisites
 
-- Java Development Kit (JDK) 8 or higher
-- JUnit 5 (for running tests)
+
+- .NET SDK 10.0 (C# 14)
+- xUnit (restored automatically by `dotnet restore`)
 
 ## Running the Tests
 
 ```bash
 # From repository root
-./gradlew :tictactoe:test
+dotnet test tic_tac_toe/TicTacToe.csproj
 ```
 
 ## Game Rules
@@ -55,4 +56,4 @@ The game follows a simple object-oriented design with the following main classes
 
 ## License
 
-This project is open source and available under the MIT License. 
+This project is open source and available under the MIT License.
