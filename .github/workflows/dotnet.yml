@@ -20,4 +20,17 @@ jobs:
       - name: Build
         run: dotnet build OodInterview.slnx --no-restore -c Release
       - name: Test
-        run: dotnet test OodInterview.slnx --no-build -c Release --logger "console;verbosity=normal"
+        run: dotnet test OodInterview.slnx --no-build -c Release --logger "trx" --results-directory TestResults
+      - name: Test summary
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import glob, re
+          total = passed = failed = 0
+          for f in glob.glob('TestResults/*.trx'):
+              s = open(f, encoding='utf-8').read()
+              m = re.search(r'<Counters total="(\d+)"[^>]*passed="(\d+)" failed="(\d+)"', s)
+              if m:
+                  total += int(m.group(1)); passed += int(m.group(2)); failed += int(m.group(3))
+          print(f"::notice title=Tests::{passed}/{total} passed, {failed} failed")
+          PY

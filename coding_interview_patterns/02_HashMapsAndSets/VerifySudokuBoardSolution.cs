@@ -5,14 +5,14 @@ public static class VerifySudokuBoardSolution {
     public static bool VerifySudokuBoard(int[][] board) {
         // Создаем хеш-наборы для каждых строки, столбца и
         // блока, чтобы отслеживать уже встречавшиеся числа.
-        var rowSets = new HashSet<int>[9];
-        var colSets = new HashSet<int>[9];
-        var subgridSets = new HashSet<int>[3, 3];
-        for (int i = 0; i < 9; i++) {
-            rowSets[i] = new HashSet<int>();
-            colSets[i] = new HashSet<int>();
-            subgridSets[i / 3, i % 3] = new HashSet<int>();
-        }
+        HashSet<int>[] rowSets =
+            Enumerable.Range(0, 9).Select(_ => new HashSet<int>()).ToArray();
+        HashSet<int>[] colSets =
+            Enumerable.Range(0, 9).Select(_ => new HashSet<int>()).ToArray();
+        HashSet<int>[][] subgridSets = Enumerable.Range(0, 3)
+            .Select(_ => Enumerable.Range(0, 3)
+                                   .Select(_ => new HashSet<int>()).ToArray())
+            .ToArray();
         for (int r = 0; r < 9; r++) {
             for (int c = 0; c < 9; c++) {
                 int num = board[r][c];
@@ -27,7 +27,7 @@ public static class VerifySudokuBoardSolution {
                 if (colSets[c].Contains(num)) {
                     return false;
                 }
-                if (subgridSets[r / 3, c / 3].Contains(num)) {
+                if (subgridSets[r / 3][c / 3].Contains(num)) {
                     return false;
                 }
                 // Если число прошло все вышеуказанные проверки,
@@ -35,7 +35,7 @@ public static class VerifySudokuBoardSolution {
                 // соответствующие хеш-множества.
                 rowSets[r].Add(num);
                 colSets[c].Add(num);
-                subgridSets[r / 3, c / 3].Add(num);
+                subgridSets[r / 3][c / 3].Add(num);
             }
         }
         return true;

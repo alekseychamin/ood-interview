@@ -6,11 +6,8 @@ public static class MatrixPathwaysSolution {
         // Базовые случаи: установить все ячейки в строке 0 и
         // столбце 0 равными 1. Это можно сделать, инициализировав
         // все ячейки таблицы dp единицами.
-        int[][] dp = new int[m][];
-        for (int r = 0; r < m; r++) {
-            dp[r] = new int[n];
-            Array.Fill(dp[r], 1);
-        }
+        int[][] dp = Enumerable.Range(0, m)
+                               .Select(_ => Enumerable.Repeat(1, n).ToArray()).ToArray();
         // Заполнить остальную таблицу dp.
         for (int r = 1; r < m; r++) {
             for (int c = 1; c < n; c++) {

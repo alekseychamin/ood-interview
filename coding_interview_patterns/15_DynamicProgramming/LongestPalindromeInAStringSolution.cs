@@ -7,18 +7,18 @@ public static class LongestPalindromeInAStringSolution {
         if (n == 0) {
             return "";
         }
-        bool[,] dp = new bool[n, n];
+        bool[][] dp = Enumerable.Range(0, n).Select(_ => new bool[n]).ToArray();
         int maxLen = 1;
         int startIndex = 0;
         // Базовый случай: один символ всегда палиндром
         for (int i = 0; i < n; i++) {
-            dp[i, i] = true;
+            dp[i][i] = true;
         }
         // Базовый случай: подстрока длиной два символа —
         // палиндром, если оба символа одинаковые.
         for (int i = 0; i < n - 1; i++) {
             if (s[i] == s[i + 1]) {
-                dp[i, i + 1] = true;
+                dp[i][i + 1] = true;
                 maxLen = 2;
                 startIndex = i;
             }
@@ -31,8 +31,8 @@ public static class LongestPalindromeInAStringSolution {
                 // Если первый и последний символы совпадают
                 // и внутренняя подстрока является палиндромом,
                 // то текущая подстрока тоже палиндром.
-                if (s[i] == s[j] && dp[i + 1, j - 1]) {
-                    dp[i, j] = true;
+                if (s[i] == s[j] && dp[i + 1][j - 1]) {
+                    dp[i][j] = true;
                     maxLen = substringLen;
                     startIndex = i;
                 }

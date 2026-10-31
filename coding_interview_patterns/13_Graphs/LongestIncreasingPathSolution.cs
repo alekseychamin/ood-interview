@@ -8,10 +8,7 @@ public static class LongestIncreasingPathSolution {
         }
         int res = 0;
         int m = matrix.Length, n = matrix[0].Length;
-        int[][] memo = new int[m][];
-        for (int i = 0; i < m; i++) {
-            memo[i] = new int[n];
-        }
+        int[][] memo = Enumerable.Range(0, m).Select(_ => new int[n]).ToArray();
         // Находим самый длинный возрастающий путь, начинающийся
         // из каждой ячейки. Максимальное значение среди них равно
         // длине общего самого длинного пути.
